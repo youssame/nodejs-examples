@@ -4,10 +4,15 @@
   "description": "",
   "main": "index.js",
   "type": "module",
+  "bin": {
+    "cli": "./dist/cli/index.js"
+  },
   "scripts": {
     "compile": "npx tsc",
-    "index": "node dist/index.js",
-    "fs": "node dist/file-system/index.js",
+    "index": "npm run compile && node dist/index.js",
+    "fs": "npm run compile && node dist/file-system/index.js",
+    "errors": "npm run compile && node dist/error-handling/index.js",
+    "cli": "npm run compile && npm i -g && cli",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -16,5 +21,10 @@
   "devDependencies": {
     "@types/node": "^20.2.3",
     "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "node-fetch": "^3.3.1",
+    "open": "^9.1.0",
+    "yargs": "^17.7.2"
   }
 }
