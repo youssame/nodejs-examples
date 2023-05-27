@@ -5,14 +5,13 @@
  * @types/express : for types
  */
 import express from 'express';
-import bodyParser from 'body-parser';
 import morgan from 'morgan';
 
 const app = express(); // create app
 
 // setup our middelwares
-app.use(bodyParser.urlencoded({ extended: true })); // parse the query string and whatever in the URL 
-app.use(bodyParser.json()); // This allows us to aprse json body
+app.use(express.urlencoded({ extended: true })); // parse the query string and whatever in the URL 
+app.use(express.json()); // This allows us to aprse json body
 app.use(morgan('dev')); // type of loggin 
 
 const DB: { [k: string]: string }[] = [];
