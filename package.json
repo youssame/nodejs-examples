@@ -8,13 +8,15 @@
     "cli": "./dist/cli/index.js"
   },
   "scripts": {
-    "compile": "npx tsc",
+    "compile": "rm -rf dist/* && npx tsc",
     "index": "npm run compile && node dist/index.js",
     "fs": "npm run compile && node dist/file-system/index.js",
     "errors": "npm run compile && node dist/error-handling/index.js",
     "cli": "npm run compile && npm i -g && cli",
     "server": "npm run compile && node dist/servers/index.js",
     "server:express": "npm run compile && node dist/servers/express.js",
+    "testing": "npm run compile && node dist/testing/test.spec.js",
+    "testing:jest": "npm run compile && npx jest dist/testing/jest.test.spec.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -22,8 +24,10 @@
   "license": "ISC",
   "devDependencies": {
     "@types/express": "^4.17.17",
+    "@types/jest": "^29.5.1",
     "@types/morgan": "^1.9.4",
     "@types/node": "^20.2.3",
+    "jest": "^29.5.0",
     "typescript": "^5.0.4"
   },
   "dependencies": {
